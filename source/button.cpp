@@ -1,4 +1,4 @@
-#include "Button.h"
+#include "button.h"
 
 //Member functions
 void Button::init() {
