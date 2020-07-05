@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Supported inputs: "clean" or "compile" [ default is compile :-) ]
+ARG=$1
+FILE=$2
+FILE_=$(basename $FILE .cpp)
+SUCCESS_EXIT_MSG="Build complete :-)"
+
+clean () { 
+    rm -fv binary/*
+    echo $SUCCESS_EXIT_MSG
+    exit 0
+}
+
+compile () {
+    g++ -c source/$FILE -o binary/$FILE_.o
+    echo $SUCCESS_EXIT_MSG
+    exit 0
+}
+[[  "$1" = "clean"     ]] && clean
+[[  "$1" = "compile"   ]] && compile 
+echo "Invalid argument.."
