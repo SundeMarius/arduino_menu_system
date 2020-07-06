@@ -22,5 +22,6 @@ compile () {
     echo $SUCCESS_EXIT_MSG
     exit 0
 }
+
 [[  "$1" = "clean"     ]] && clean || compile
 echo "Invalid argument.."
