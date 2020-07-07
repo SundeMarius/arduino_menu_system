@@ -31,10 +31,7 @@ class TreeOption : public MenuOption {
         TreeOption(string des) : MenuOption(des) {};
 
         // Might want to change TreeOption argument to be a more "children" type of option class (TreeChildrenOption something something)
-        TreeOption(string des, TreeOption* nOption, byte NNOptions) : MenuOption(des) {
-            nOption = nOption;
-            NNOptions = NNOptions;
-        };
+        TreeOption(string des, TreeOption* nOption, byte NNOptions) : MenuOption(des) {};
 
         // Member functions here..
         byte get_number_next_options() const { return numbNextOptions; }
