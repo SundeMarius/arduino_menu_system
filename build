@@ -1,14 +1,19 @@
 #!/bin/bash
+#USAGE:
+# To compile "hello_world.cpp" in the shell;
+#   ./build hello_world.cpp
+# To clean binary directory of object files in shell;
+#   ./build clean
 
 # Supported inputs: "clean" or "compile" [ default is compile :-) ]
-ARG=$1
-FILE=$2
+[[   -z "$2"   ]] && FILE=$1 || FILE=$2
 FILE_=$(basename $FILE .cpp)
 SUCCESS_EXIT_MSG="Build complete :-)"
+SUCCESS_CLEAN_MSG="Binaries are no more :-/"
 
 clean () { 
     rm -fv binary/*
-    echo $SUCCESS_EXIT_MSG
+    echo $SUCCESS_CLEAN_MSG
     exit 0
 }
 
@@ -17,6 +22,6 @@ compile () {
     echo $SUCCESS_EXIT_MSG
     exit 0
 }
-[[  "$1" = "clean"     ]] && clean
-[[  "$1" = "compile"   ]] && compile 
+
+[[  "$1" = "clean"     ]] && clean || compile
 echo "Invalid argument.."
