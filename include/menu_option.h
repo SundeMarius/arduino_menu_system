@@ -10,23 +10,26 @@
 using namespace std;
 #endif
 
-
+/**
+ * Represents an abstract class that is the base class for all menu options
+ **/
 class MenuOption {
-private:
-    // Member fields
-    // A description of the option (e.g "Feed pet")
-    string description;
-    // Specify number of "childrens" this MenuOption is parent to.
-    byte numbNextOptions;
-    // Pointer to a children MenuOption
-    MenuOption* nextOption;
-public:
-    // Constructors
-    MenuOption() = default;
-    MenuOption(string des);
-    MenuOption(string des, MenuOption* nOption, byte NNOptions);
-    // Member functions here..
-    string get_description() const { return description; }
-    byte get_number_next_options() const { return numbNextOptions; }
+
+    private:
+        // Member fields
+        // A description of the option (e.g "Feed pet")
+        string description;
+
+    public:
+        // Constructors
+        MenuOption();
+        MenuOption(string desc);
+
+        // Member functions here..
+        string get_description() const { return description; }
+
+        // Purpose of this method is just to make the class abstract (change later)
+        virtual void getText() = 0; // Pure virtual function makes this class abstract
 };
+
 #endif
