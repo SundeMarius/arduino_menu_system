@@ -22,7 +22,7 @@ class MenuOption {
 
     public:
         // Constructors
-        MenuOption() = default;
+        MenuOption();
         MenuOption(string desc);
 
         // Member functions here..
