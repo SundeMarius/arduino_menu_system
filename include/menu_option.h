@@ -15,7 +15,7 @@ using namespace std;
  **/
 class MenuOption {
 
-    private:
+    protected:
         // Member fields
         // A description of the option (e.g "Feed pet")
         string description;
