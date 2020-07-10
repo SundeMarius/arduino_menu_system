@@ -26,7 +26,7 @@ class Timer {
         * Checks if the time we set in our timer has expired,
         * and then returns either true or false
         */
-        bool timerHasExpired();
+        bool timer_has_expired();
 };
 
 #endif
