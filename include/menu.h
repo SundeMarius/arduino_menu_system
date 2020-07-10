@@ -1,10 +1,10 @@
 #ifndef menu_h
 #define menu_h
 
-class Menu {
-private:
+class Menu {  private:
+
   
-public:
+       public:
 };
 
 #endif
