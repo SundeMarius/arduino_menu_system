@@ -1,8 +1,7 @@
-#ifndef timer_h
-#define timer_h
+#ifndef TIMER_H
+#define TIMER_H
 
-#include <string>
-#include "timer.h"
+#include <Arduino.h>
 
 /**
  * This class represents a parent option i.e an option that can hold n number of children options.
