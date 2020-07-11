@@ -2,3 +2,4 @@
 .vscode
 platformio.ini
 /*.txt
+test.json
