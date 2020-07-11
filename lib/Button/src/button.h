@@ -7,10 +7,12 @@ Last edit: 28.07.2018
 #ifndef button_h
 #define button_h
 
-#ifdef Arduino_h
-#include <Arduino.h>
+//#ifdef Arduino_h
+//#include <Arduino.h>
+//#define byte unsigned char
+//#endif
 #define byte unsigned char
-#endif
+
 
 class Button {
 private:

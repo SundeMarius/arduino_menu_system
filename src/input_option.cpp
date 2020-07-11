@@ -1,6 +1,6 @@
-#include "parent_option.h"
+#include "input_option.h"
 
-ParentOption::ParentOption
+InputOption::InputOption
 (
     char* optionTitle, 
     MenuOption* prevOptionSameLevel,
@@ -9,15 +9,16 @@ ParentOption::ParentOption
     MenuOption* nextOptionNextLevel, 
     byte numbNextOptions,
     ActionFuncPtr action
-) : MenuOption
+) : ParentOption
 (
     optionTitle, 
-    prevOptionSameLevel,
+    prevOptionSameLevel, 
     nextOptionSameLevel,
-    prevOptionPrevLevel,
+    prevOptionPrevLevel, 
+    nextOptionNextLevel,
+    numbNextOptions,
     action
 )
 {
-    _nextOptionNextLevel = nextOptionNextLevel; 
-    _numberOfNextOptions = numbNextOptions;
+    _input = nullptr;
 }
