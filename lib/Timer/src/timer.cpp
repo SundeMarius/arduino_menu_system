@@ -1,16 +1,13 @@
 #include "timer.h"
 
-Timer::Timer() {}
+Timer::Timer() {
+  _nextTimeout = 0;
+}
 
-void Timer::start_timer(unsigned int duration) {
-    nextTimeout = millis() + duration;
+void Timer::start_timer(unsigned long duration) {
+    _nextTimeout = millis() + duration;
 }
 
 bool Timer::timer_has_expired() {
-  bool hasExpired  = false;
-  if (millis() > nextTimeout) {
-    hasExpired = true;
-  } else {
-    hasExpired = false;
-  } return hasExpired;
+  (millis() > _nextTimeout) ? return true : return false;
 }

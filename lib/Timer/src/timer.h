@@ -9,7 +9,7 @@
 class Timer {
 
     private:
-        unsigned int nextTimeout = 0;
+        unsigned long _nextTimeout;
         
     public:
         /**
