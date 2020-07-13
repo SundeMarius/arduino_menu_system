@@ -18,6 +18,9 @@ class ParentOption : public MenuOption {
         // Default constructor
         ParentOption() : MenuOption(), _nextOptionNextLevel(nullptr),   _numberOfNextOptions(0) {}
 
+        //Another constructor
+        ParentOption(char* optionTitle, ActionFuncPtr action = nullptr);
+
         // Another constructor (this is the one we're going to use usually.)
         ParentOption
         (
@@ -26,14 +29,19 @@ class ParentOption : public MenuOption {
             MenuOption* nextOptionSameLevel,
             MenuOption* prevOptionPrevLevel,
             MenuOption* nextOptionNextLevel, 
-            byte numbNextOptions,
             ActionFuncPtr action
         );
 
         // Member functions here..
         byte getNumberOfNextOptions() const { return _numberOfNextOptions; }
 
+        void setNumberOfNextOptions(byte nextOptions) { _numberOfNextOptions = nextOptions; }
+
+        void incrementNumbOfOptions() { ++_numberOfNextOptions; }
+
         MenuOption* getNextOptionNextLevel() const { return _nextOptionNextLevel; }
+
+        void setNextOptionNextLevel(MenuOption* nextOption) { _nextOptionNextLevel = nextOption; }
 };
 
 #endif

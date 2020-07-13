@@ -1,5 +1,7 @@
 #include "leaf_option.h"
 
+LeafOption::LeafOption(char* optionTitle, ActionFuncPtr action = nullptr) : MenuOption(optionTitle, action) {}
+
 LeafOption::LeafOption
 (
     char* optionTitle, 

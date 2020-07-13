@@ -14,6 +14,10 @@ class LeafOption : public MenuOption {
     public:
         // Constructors
         LeafOption() : MenuOption() {};
+        
+        //Another constructor
+        LeafOption(char* optionTitle, ActionFuncPtr action = nullptr);
+        
         // Another constructor (this is the one we're going to use usually.)
         LeafOption
         (
