@@ -1,5 +1,13 @@
 #include "menu_option.h"
 
+MenuOption::MenuOption(char* optionTitle) {
+    _optionTitle = optionTitle;
+    _prevOptionSameLevel = nullptr;
+    _nextOptionSameLevel = nullptr;
+    _prevOptionPrevLevel = nullptr;
+    _action = nullptr;
+}
+
 MenuOption::MenuOption
 (
     char* optionTitle, 

@@ -30,10 +30,9 @@ class MenuOption {
         // Default one
         MenuOption() : _optionTitle(nullptr), _prevOptionSameLevel(nullptr), 
                        _prevOptionPrevLevel(nullptr), _nextOptionSameLevel(nullptr), _action(nullptr) {}
-
-        // Destructor (Ensure proper garbage management)
-        //~MenuOption();
         
+        MenuOption(char* optionTitle);
+
         // Another constructor (this is the one we're going to use usually.)
         MenuOption
         (   
@@ -44,19 +43,30 @@ class MenuOption {
             ActionFuncPtr action = nullptr   
         );
 
+        // Destructor (Ensure proper garbage management)
+        //~MenuOption();
+
         // Member functions here..
+        // sets and gets
         char* getOptionTitle() const { return _optionTitle; }
 
         MenuOption* getPrevOptionSameLevel() const { return _prevOptionSameLevel; }
 
+        void setPrevOptionSameLevel(MenuOption* prevOption) { _prevOptionSameLevel = prevOption; }
+
         MenuOption* getNextOptionSameLevel() const { return _nextOptionSameLevel; }
 
+        void setNextOptionSameLevel(MenuOption* nextOption) { _nextOptionSameLevel = nextOption; }
+
         MenuOption* getPrevOptionPrevLevel() const { return _prevOptionPrevLevel; }
+        
+        void setPrevOptionPrevLevel(MenuOption* prevOption) { _prevOptionPrevLevel = prevOption; }
 
         ActionFuncPtr getAction() const { return _action; }
+
+        void setAction(ActionFuncPtr action) { _action = action; }
 
         // Purpose of this method is just to make the class abstract (change later)
         //virtual void getText() = 0; // Pure virtual function makes this class abstract
 };
-
 #endif

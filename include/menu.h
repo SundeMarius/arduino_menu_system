@@ -11,7 +11,30 @@ class Menu {
         char* _welcomeMessage;
 
     public:
-        const char* getVersion() const { return MENU_SYSTEM_VERSION; }
+
+        //Constructors
+        Menu();
+
+        //TODO implement a proper constructor for "Menu"w
+        
+        //Member functions
+        
+        //DLL stuff
+        //Given the HEAD node headOption (first node in a DLL), append menuOption to the end of the list. 
+        void appendOption(MenuOption* menuOption, MenuOption* headOption);
+        
+        //Given the HEAD node headOption (first node in a DLL), add menuOption to the beginning of the list.
+        void pushOption(MenuOption* menuOption, MenuOption* headOption);
+
+
+        //Menu specific
+        char* getWelcomeMessage() const { return _welcomeMessage; }
+
+        const char* version() { return MENU_SYSTEM_VERSION }
+
+        MenuOption* getCurrentOption() const { return _currentOption; }
+
+        void setCurrentOption(MenuOption* currentOption) { _currentOption = currentOption;}
 };
 
 #endif
