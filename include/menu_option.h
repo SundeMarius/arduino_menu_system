@@ -31,7 +31,7 @@ class MenuOption {
         MenuOption() : _optionTitle(nullptr), _prevOptionSameLevel(nullptr), 
                        _prevOptionPrevLevel(nullptr), _nextOptionSameLevel(nullptr), _action(nullptr) {}
         
-        MenuOption(char* optionTitle);
+        MenuOption(char* optionTitle, ActionFuncPtr action = nullptr);
 
         // Another constructor (this is the one we're going to use usually.)
         MenuOption

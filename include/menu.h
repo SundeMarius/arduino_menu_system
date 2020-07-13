@@ -3,7 +3,7 @@
 
 #include "menu_option.h"
 
-#define MENU_SYSTEM_VERSION "1.0";
+#define MENU_SYSTEM_VERSION "1.0"
 
 class Menu {  
     private:
@@ -30,11 +30,14 @@ class Menu {
         //Menu specific
         char* getWelcomeMessage() const { return _welcomeMessage; }
 
-        const char* version() { return MENU_SYSTEM_VERSION }
-
         MenuOption* getCurrentOption() const { return _currentOption; }
 
         void setCurrentOption(MenuOption* currentOption) { _currentOption = currentOption;}
+
+
+        //Stuff shared between all instances of "Menu"
+        static char* version() { return MENU_SYSTEM_VERSION; }
+
 };
 
 #endif

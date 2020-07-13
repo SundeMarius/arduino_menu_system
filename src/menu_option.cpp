@@ -1,11 +1,11 @@
 #include "menu_option.h"
 
-MenuOption::MenuOption(char* optionTitle) {
+MenuOption::MenuOption(char* optionTitle, ActionFuncPtr action = nullptr) {
     _optionTitle = optionTitle;
     _prevOptionSameLevel = nullptr;
     _nextOptionSameLevel = nullptr;
     _prevOptionPrevLevel = nullptr;
-    _action = nullptr;
+    _action = action;
 }
 
 MenuOption::MenuOption
