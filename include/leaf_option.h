@@ -1,8 +1,6 @@
 #ifndef leaf_option_h
 #define leaf_option_h
 
-#include <string>
-// Include MenuOption
 #include "menu_option.h"
 
 /**
@@ -10,14 +8,25 @@
  **/
 class LeafOption : public MenuOption {
         
-    private:
+    protected:
         // Need more member variables 
         
     public:
         // Constructors
         LeafOption() : MenuOption() {};
-
-        LeafOption(string des);
+        
+        //Another constructor
+        LeafOption(char* optionTitle, ActionFuncPtr action = nullptr);
+        
+        // Another constructor (this is the one we're going to use usually.)
+        LeafOption
+        (
+            char* optionTitle, 
+            MenuOption* prevOptionSameLevel,
+            MenuOption* nextOptionSameLevel,
+            MenuOption* prevOptionPrevLevel,
+            ActionFuncPtr action = nullptr
+        );
 
         // Member functions here..
 };

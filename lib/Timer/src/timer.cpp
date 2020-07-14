@@ -9,5 +9,5 @@ void Timer::start_timer(unsigned long duration) {
 }
 
 bool Timer::timer_has_expired() {
-  (millis() > _nextTimeout) ? return true : return false;
+  return (millis() > _nextTimeout);
 }

@@ -20,7 +20,7 @@ class Timer {
         /**
         * Starts a timer for something to be performed
         */
-        void start_timer(unsigned int duration);
+        void start_timer(unsigned long duration);
 
         /**
         * Checks if the time we set in our timer has expired,
