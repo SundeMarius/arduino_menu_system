@@ -1,16 +1,11 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-#include <Arduino.h>
-
-/**
- * This class represents a parent option i.e an option that can hold n number of children options.
- **/
 class Timer {
 
     private:
         unsigned long _nextTimeout;
-        
+
     public:
         /**
          * Default Constructor

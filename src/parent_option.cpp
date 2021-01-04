@@ -2,31 +2,31 @@
 
 ParentOption::ParentOption
 (
-    char* optionTitle, 
-    ActionFuncPtr action = nullptr
-) : MenuOption(optionTitle, action), _nextOptionNextLevel(nullptr), _numberOfNextOptions(0) 
+    char* optionTitle,
+    ActionFuncPtr action
+) : MenuOption(optionTitle, action), _nextOptionNextLevel(nullptr), _numberOfNextOptions(0)
 {
-    
+
 }
-  
+
 
 ParentOption::ParentOption
 (
-    char* optionTitle, 
+    char* optionTitle,
     MenuOption* prevOptionSameLevel,
     MenuOption* nextOptionSameLevel,
     MenuOption* prevOptionPrevLevel,
-    MenuOption* nextOptionNextLevel, 
+    MenuOption* nextOptionNextLevel,
     ActionFuncPtr action
 ) : MenuOption
 (
-    optionTitle, 
+    optionTitle,
     prevOptionSameLevel,
     nextOptionSameLevel,
     prevOptionPrevLevel,
     action
 )
 {
-    _nextOptionNextLevel = nextOptionNextLevel; 
+    _nextOptionNextLevel = nextOptionNextLevel;
     _numberOfNextOptions = 0;
 }

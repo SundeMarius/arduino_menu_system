@@ -2,21 +2,19 @@
 
 InputOption::InputOption
 (
-    char* optionTitle, 
+    char* optionTitle,
     MenuOption* prevOptionSameLevel,
     MenuOption* nextOptionSameLevel,
     MenuOption* prevOptionPrevLevel,
-    MenuOption* nextOptionNextLevel, 
-    byte numbNextOptions,
+    MenuOption* nextOptionNextLevel,
     ActionFuncPtr action
 ) : ParentOption
 (
-    optionTitle, 
-    prevOptionSameLevel, 
+    optionTitle,
+    prevOptionSameLevel,
     nextOptionSameLevel,
-    prevOptionPrevLevel, 
+    prevOptionPrevLevel,
     nextOptionNextLevel,
-    numbNextOptions,
     action
 )
 {

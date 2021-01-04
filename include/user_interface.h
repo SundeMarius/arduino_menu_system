@@ -15,5 +15,4 @@ class UserInterface {
         UserInterface(/* args */);
         ~UserInterface();
 };
-
 #endif

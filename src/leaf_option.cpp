@@ -1,22 +1,22 @@
 #include "leaf_option.h"
 
-LeafOption::LeafOption(char* optionTitle, ActionFuncPtr action = nullptr) : MenuOption(optionTitle, action) {}
+LeafOption::LeafOption(char* optionTitle, ActionFuncPtr action) : MenuOption(optionTitle, action) {}
 
 LeafOption::LeafOption
 (
-    char* optionTitle, 
+    char* optionTitle,
     MenuOption* prevOptionSameLevel,
     MenuOption* nextOptionSameLevel,
     MenuOption* prevOptionPrevLevel,
-    ActionFuncPtr action = nullptr
+    ActionFuncPtr action
 ) : MenuOption
 (
-    optionTitle, 
+    optionTitle,
     prevOptionSameLevel,
-    nextOptionSameLevel, 
+    nextOptionSameLevel,
     prevOptionPrevLevel,
     action
-) 
+)
 {
 
 }

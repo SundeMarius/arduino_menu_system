@@ -1,8 +1,6 @@
 #ifndef menu_option_h
 #define menu_option_h
 
-#include "Arduino.h"
-
 #define byte unsigned char
 
 typedef void (*ActionFuncPtr);
@@ -17,10 +15,10 @@ class MenuOption {
         // The text to display for this option (C-array)
         char* _optionTitle;
         // DLL pointer to previous node same level
-        MenuOption* _prevOptionSameLevel; 
+        MenuOption* _prevOptionSameLevel;
         // DLL pointer to next node same level
         MenuOption* _nextOptionSameLevel;
-        // A pointer to the parent of (*this)  
+        // A pointer to the parent of (*this)
         MenuOption* _prevOptionPrevLevel;
         // A function pointer to an "action" sub-routine
         ActionFuncPtr _action;
@@ -28,19 +26,19 @@ class MenuOption {
     public:
         // Constructors
         // Default one
-        MenuOption() : _optionTitle(nullptr), _prevOptionSameLevel(nullptr), 
+        MenuOption() : _optionTitle(nullptr), _prevOptionSameLevel(nullptr),
                        _prevOptionPrevLevel(nullptr), _nextOptionSameLevel(nullptr), _action(nullptr) {}
-        
-        MenuOption(char* optionTitle, ActionFuncPtr action = nullptr);
 
-        // Another constructor (this is the one we're going to use usually.)
+        // More constructors (these two are the ones we're going to use usually.)
+        MenuOption(char* optionTitle, ActionFuncPtr action = nullptr);
+        
         MenuOption
-        (   
-            char* optionTitle, 
+        (
+            char* optionTitle,
             MenuOption* prevOptionSameLevel,
             MenuOption* nextOptionSameLevel,
             MenuOption* prevOptionPrevLevel,
-            ActionFuncPtr action = nullptr   
+            ActionFuncPtr action = nullptr
         );
 
         // Destructor (Ensure proper garbage management)
@@ -59,7 +57,7 @@ class MenuOption {
         void setNextOptionSameLevel(MenuOption* nextOption) { _nextOptionSameLevel = nextOption; }
 
         MenuOption* getPrevOptionPrevLevel() const { return _prevOptionPrevLevel; }
-        
+
         void setPrevOptionPrevLevel(MenuOption* prevOption) { _prevOptionPrevLevel = prevOption; }
 
         ActionFuncPtr getAction() const { return _action; }

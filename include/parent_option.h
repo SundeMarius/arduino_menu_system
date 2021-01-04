@@ -13,22 +13,20 @@ class ParentOption : public MenuOption {
         byte _numberOfNextOptions;
         // Pointer to a children MenuOption
         MenuOption* _nextOptionNextLevel;
-        
     public:
         // Default constructor
-        ParentOption() : MenuOption(), _nextOptionNextLevel(nullptr),   _numberOfNextOptions(0) {}
+        ParentOption() : MenuOption(), _nextOptionNextLevel(nullptr), _numberOfNextOptions(0) {}
 
-        //Another constructor
+        // Another constructors (these are the ones we're going to use usually.)
         ParentOption(char* optionTitle, ActionFuncPtr action = nullptr);
 
-        // Another constructor (this is the one we're going to use usually.)
         ParentOption
         (
-            char* optionTitle, 
+            char* optionTitle,
             MenuOption* prevOptionSameLevel,
             MenuOption* nextOptionSameLevel,
             MenuOption* prevOptionPrevLevel,
-            MenuOption* nextOptionNextLevel, 
+            MenuOption* nextOptionNextLevel,
             ActionFuncPtr action
         );
 
