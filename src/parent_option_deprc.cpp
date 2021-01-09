@@ -1,10 +1,10 @@
-#include "parent_option.h"
+#include "parent_option_deprc.h"
 
 ParentOption::ParentOption
 (
     char* optionTitle,
     ActionFuncPtr action
-) : MenuOption(optionTitle, action), _nextOptionNextLevel(nullptr), _numberOfNextOptions(0)
+) : MenuOption(optionTitle, action), nextOptionNextLevel(nullptr), numberOfNextOptions(0)
 {
 
 }
@@ -24,9 +24,10 @@ ParentOption::ParentOption
     prevOptionSameLevel,
     nextOptionSameLevel,
     prevOptionPrevLevel,
+    nextOptionNextLevel,
     action
 )
 {
-    _nextOptionNextLevel = nextOptionNextLevel;
-    _numberOfNextOptions = 0;
+    nextOptionNextLevel = nextOptionNextLevel;
+    numberOfNextOptions = 0;
 }

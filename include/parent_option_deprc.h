@@ -10,12 +10,12 @@ class ParentOption : public MenuOption {
 
     protected:
         // Specify number of "childrens" this MenuOption is parent to.
-        byte _numberOfNextOptions;
+        byte numberOfNextOptions;
         // Pointer to a children MenuOption
-        MenuOption* _nextOptionNextLevel;
+        MenuOption* nextOptionNextLevel;
     public:
         // Default constructor
-        ParentOption() : MenuOption(), _nextOptionNextLevel(nullptr), _numberOfNextOptions(0) {}
+        ParentOption() : MenuOption(), nextOptionNextLevel(nullptr), numberOfNextOptions(0) {}
 
         // Another constructors (these are the ones we're going to use usually.)
         ParentOption(char* optionTitle, ActionFuncPtr action = nullptr);
@@ -31,15 +31,18 @@ class ParentOption : public MenuOption {
         );
 
         // Member functions here..
-        byte getNumberOfNextOptions() const { return _numberOfNextOptions; }
+        byte getNumberOfNextOptions() const { return numberOfNextOptions; }
 
-        void setNumberOfNextOptions(byte nextOptions) { _numberOfNextOptions = nextOptions; }
+        void setNumberOfNextOptions(byte nextOptions) { numberOfNextOptions = nextOptions; }
 
-        void incrementNumbOfOptions() { ++_numberOfNextOptions; }
+        void incrementNumbOfOptions() { ++numberOfNextOptions; }
 
-        MenuOption* getNextOptionNextLevel() const { return _nextOptionNextLevel; }
+        MenuOption* getNextOptionNextLevel() const { return nextOptionNextLevel; }
 
-        void setNextOptionNextLevel(MenuOption* nextOption) { _nextOptionNextLevel = nextOption; }
+        void setNextOptionNextLevel(MenuOption* nextOption) {
+          this->nextOptionNextLevel = nextOption;
+          nextOption->setPrevOptionPrevLevel(this);
+        }
 };
 
 #endif

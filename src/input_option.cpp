@@ -8,7 +8,7 @@ InputOption::InputOption
     MenuOption* prevOptionPrevLevel,
     MenuOption* nextOptionNextLevel,
     ActionFuncPtr action
-) : ParentOption
+) : MenuOption
 (
     optionTitle,
     prevOptionSameLevel,
@@ -18,5 +18,5 @@ InputOption::InputOption
     action
 )
 {
-    _input = nullptr;
+    input = nullptr;
 }

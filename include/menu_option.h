@@ -9,60 +9,69 @@ typedef void (*ActionFuncPtr);
  * Represents a class that is the base class for all menu options
  **/
 class MenuOption {
-
     protected:
         // Member fields
-        // The text to display for this option (C-array)
-        char* _optionTitle;
         // DLL pointer to previous node same level
-        MenuOption* _prevOptionSameLevel;
+        MenuOption* prevOptionSameLevel;
         // DLL pointer to next node same level
-        MenuOption* _nextOptionSameLevel;
+        MenuOption* nextOptionSameLevel;
         // A pointer to the parent of (*this)
-        MenuOption* _prevOptionPrevLevel;
+        MenuOption* prevOptionPrevLevel;
+        // A pointer to the parent of (*this)
+        MenuOption* nextOptionNextLevel;
+        // The text to display for this option (C-array)
+        char* optionTitle;
         // A function pointer to an "action" sub-routine
-        ActionFuncPtr _action;
+        ActionFuncPtr action;
 
     public:
         // Constructors
         // Default one
-        MenuOption() : _optionTitle(nullptr), _prevOptionSameLevel(nullptr),
-                       _prevOptionPrevLevel(nullptr), _nextOptionSameLevel(nullptr), _action(nullptr) {}
+        MenuOption() : optionTitle(nullptr), prevOptionSameLevel(nullptr),
+                       prevOptionPrevLevel(nullptr), nextOptionSameLevel(nullptr),
+                       nextOptionNextLevel(nullptr), action(nullptr) {}
 
         // More constructors (these two are the ones we're going to use usually.)
         MenuOption(char* optionTitle, ActionFuncPtr action = nullptr);
-        
+
         MenuOption
         (
             char* optionTitle,
             MenuOption* prevOptionSameLevel,
             MenuOption* nextOptionSameLevel,
             MenuOption* prevOptionPrevLevel,
+            MenuOption* nextOptionNextLevel,
             ActionFuncPtr action = nullptr
         );
 
-        // Destructor (Ensure proper garbage management)
-        //~MenuOption();
-
         // Member functions here..
         // sets and gets
-        char* getOptionTitle() const { return _optionTitle; }
+        char* getOptionTitle() const { return optionTitle; }
 
-        MenuOption* getPrevOptionSameLevel() const { return _prevOptionSameLevel; }
+        MenuOption* getPrevOptionSameLevel() { return prevOptionSameLevel; }
 
-        void setPrevOptionSameLevel(MenuOption* prevOption) { _prevOptionSameLevel = prevOption; }
+        MenuOption* getPrevOptionPrevLevel() { return prevOptionPrevLevel; }
 
-        MenuOption* getNextOptionSameLevel() const { return _nextOptionSameLevel; }
+        MenuOption* getNextOptionSameLevel() { return nextOptionSameLevel; }
 
-        void setNextOptionSameLevel(MenuOption* nextOption) { _nextOptionSameLevel = nextOption; }
+        MenuOption* getNextOptionNextLevel() { return nextOptionNextLevel; }
 
-        MenuOption* getPrevOptionPrevLevel() const { return _prevOptionPrevLevel; }
+        void setPrevOptionPrevLevel(MenuOption* prevOption) { prevOptionPrevLevel = prevOption; }
 
-        void setPrevOptionPrevLevel(MenuOption* prevOption) { _prevOptionPrevLevel = prevOption; }
+        void setPrevOptionSameLevel(MenuOption* prevOption) { prevOptionSameLevel = prevOption; }
 
-        ActionFuncPtr getAction() const { return _action; }
+        void setNextOptionSameLevel(MenuOption* nextOption) {
+          this->nextOptionSameLevel = nextOption;
+          nextOption->setPrevOptionSameLevel(this);
+        }
+        void setNextOptionNextLevel(MenuOption* nextOption) {
+          this->nextOptionNextLevel = nextOption;
+          nextOption->setPrevOptionPrevLevel(this);
+        }
 
-        void setAction(ActionFuncPtr action) { _action = action; }
+        ActionFuncPtr getAction() const { return action; }
+
+        void setAction(ActionFuncPtr action) { action = action; }
 
         // Purpose of this method is just to make the class abstract (change later)
         //virtual void getText() = 0; // Pure virtual function makes this class abstract

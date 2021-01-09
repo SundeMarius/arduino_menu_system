@@ -8,6 +8,7 @@ LeafOption::LeafOption
     MenuOption* prevOptionSameLevel,
     MenuOption* nextOptionSameLevel,
     MenuOption* prevOptionPrevLevel,
+    MenuOption* nextOptionNextLevel,
     ActionFuncPtr action
 ) : MenuOption
 (
@@ -15,6 +16,7 @@ LeafOption::LeafOption
     prevOptionSameLevel,
     nextOptionSameLevel,
     prevOptionPrevLevel,
+    nextOptionNextLevel,
     action
 )
 {

@@ -1,11 +1,12 @@
 #include "menu_option.h"
 
 MenuOption::MenuOption(char* optionTitle, ActionFuncPtr action) {
-    _optionTitle = optionTitle;
-    _prevOptionSameLevel = nullptr;
-    _nextOptionSameLevel = nullptr;
-    _prevOptionPrevLevel = nullptr;
-    _action = action;
+    this->optionTitle = optionTitle;
+    this->prevOptionSameLevel = nullptr;
+    this->nextOptionSameLevel = nullptr;
+    this->prevOptionPrevLevel = nullptr;
+    this->nextOptionNextLevel = nullptr;
+    this->action = action;
 }
 
 MenuOption::MenuOption
@@ -14,20 +15,14 @@ MenuOption::MenuOption
     MenuOption* prevOptionSameLevel,
     MenuOption* nextOptionSameLevel,
     MenuOption* prevOptionPrevLevel,
+    MenuOption* nextOptionNextLevel,
     ActionFuncPtr action
 )
 {
-    _optionTitle = optionTitle;
-    _prevOptionSameLevel = prevOptionSameLevel;
-    _nextOptionSameLevel = nextOptionSameLevel;
-    _prevOptionPrevLevel = prevOptionPrevLevel;
-    _action = action;
+    this->optionTitle = optionTitle;
+    this->prevOptionSameLevel = prevOptionSameLevel;
+    this->nextOptionSameLevel = nextOptionSameLevel;
+    this->prevOptionPrevLevel = prevOptionPrevLevel;
+    this->nextOptionNextLevel = nextOptionNextLevel;
+    this->action = action;
 }
-
-// MenuOption::~MenuOption() {
-//     delete _optionTitle;
-//     delete _prevOptionSameLevel;
-//     delete _nextOptionSameLevel;
-//     delete _prevOptionPrevLevel;
-//     delete _action;
-// }

@@ -25,6 +25,7 @@ class LeafOption : public MenuOption {
             MenuOption* prevOptionSameLevel,
             MenuOption* nextOptionSameLevel,
             MenuOption* prevOptionPrevLevel,
+            MenuOption* nextOptionNextLevel,
             ActionFuncPtr action = nullptr
         );
 

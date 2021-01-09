@@ -7,30 +7,33 @@ const char MENU_SYSTEM_VERSION[] = "1.0";
 
 class Menu {
     private:
-        MenuOption* _currentOption;
-        char* _welcomeMessage;
-    public:
-        //Constructors
-        Menu();
+        MenuOption* firstOption;
+        MenuOption* currentOption;
+        char* welcomeMessage;
 
-        //TODO implement a proper constructor for "Menu"
-
-        //Member functions
-
-        //DLL stuff
+        //DLL stuff, which in not interesting for user (private)
         //Given the HEAD node headOption (first node in a DLL), append menuOption to the end of the list.
         void appendOption(MenuOption* menuOption, MenuOption* headOption);
-
         //Given the HEAD node headOption (first node in a DLL), add menuOption to the beginning of the list.
         void pushOption(MenuOption* menuOption, MenuOption* headOption);
+    public:
+        //Constructors
+        Menu() : firstOption(nullptr), currentOption(nullptr),
+                 welcomeMessage(nullptr) {}
+        Menu(char* welcome_message, MenuOption* first_option);
 
+        //Member functions
+        //Construction of menu
+        void add_option(MenuOption* head, MenuOption* option, MenuOption* children=nullptr, byte numb_children=0);
 
         //Menu specific
-        char* getWelcomeMessage() const { return _welcomeMessage; }
+        char* getWelcomeMessage() const { return welcomeMessage; }
 
-        MenuOption* getCurrentOption() const { return _currentOption; }
+        MenuOption* getCurrentOption() { return currentOption; }
 
-        void setCurrentOption(MenuOption* currentOption) { _currentOption = currentOption;}
+        MenuOption* getFirstOption() { return firstOption; }
+
+        void setCurrentOption(MenuOption* current_option) { currentOption = current_option; }
 
 
         //Stuff shared between all instances of "Menu"

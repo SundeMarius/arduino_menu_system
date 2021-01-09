@@ -1,19 +1,19 @@
 #ifndef input_option_h
 #define input_option_h
 
-#include "parent_option.h"
+#include "menu_option.h"
 
 /**
  * This class represents an input option i.e an option that requests an input from the user and stores it in a member field.
  **/
-class InputOption : public ParentOption {
+class InputOption : public MenuOption {
 
     private:
-        char* _input;
+        char* input;
 
     public:
         // Default constructor
-        InputOption() : ParentOption(), _input(nullptr) {}
+        InputOption() : MenuOption(), input(nullptr) {}
         // Another constructor (this is the one we're going to use usually.)
         InputOption
         (
