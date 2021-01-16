@@ -4,7 +4,7 @@
 Menu::Menu(char* welcome_message, MenuOption* first_option) {
     this->welcomeMessage = welcome_message;
     this->firstOption = first_option;
-    this->currentOption = first_option;
+    this->currentOption = first_option;    
 }
 
 //Member function impl.
